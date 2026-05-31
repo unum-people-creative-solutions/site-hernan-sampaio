@@ -32,7 +32,7 @@ export default function Home() {
                 className="object-contain"
               />
             </div>
-            <div className="w-40 h-10 relative">
+            <div className="w-40 h-10 relative -mt-3">
               <Image 
                 src="/logo_texto.png" 
                 alt="Hernan Sampaio Texto" 
