@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050505; /* Preto absoluto para máximo contraste neon */
+  --foreground: #FFFFFF;
+  
+  /* Paleta Neon Explosiva */
+  --neon-yellow: #CCFF00;   /* Volt/Limalha */
+  --neon-blue: #00F0FF;     /* Ciano Elétrico */
+  --neon-pink: #FF00E5;     /* Magenta Neon */
+  --neon-purple: #9D00FF;   /* Violeta Neon */
+  --neon-red: #FF003C;      /* Vermelho Laser */
+  
+  --primary: var(--neon-yellow);
+  --primary-foreground: #000000;
+  --muted: #111111;
+  --muted-foreground: #888888;
+  --border: #222222;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-neon-yellow: var(--neon-yellow);
+  --color-neon-blue: var(--neon-blue);
+  --color-neon-pink: var(--neon-pink);
+  --color-neon-purple: var(--neon-purple);
+  --color-neon-red: var(--neon-red);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
+
+/* Animação Neon Cycle (Bordas e Shadows) */
+@keyframes neon-border-cycle {
+  0%, 100% { border-color: var(--neon-yellow); box-shadow: 0 0 20px var(--neon-yellow); }
+  25% { border-color: var(--neon-blue); box-shadow: 0 0 20px var(--neon-blue); }
+  50% { border-color: var(--neon-pink); box-shadow: 0 0 20px var(--neon-pink); }
+  75% { border-color: var(--neon-purple); box-shadow: 0 0 20px var(--neon-purple); }
+}
+
+/* Animação Neon Text/Icon Cycle */
+@keyframes neon-text-cycle {
+  0%, 100% { color: var(--neon-yellow); filter: drop-shadow(0 0 8px var(--neon-yellow)); }
+  25% { color: var(--neon-blue); filter: drop-shadow(0 0 8px var(--neon-blue)); }
+  50% { color: var(--neon-pink); filter: drop-shadow(0 0 8px var(--neon-pink)); }
+  75% { color: var(--neon-purple); filter: drop-shadow(0 0 8px var(--neon-purple)); }
+}
+
+.animate-neon-border {
+  animation: neon-border-cycle 4s infinite linear;
+}
+
+.animate-neon-text {
+  animation: neon-text-cycle 4s infinite linear;
+}
+
+.hover-neon-border:hover {
+  animation: neon-border-cycle 2s infinite linear;
+}
+
+.hover-neon-text:hover {
+  animation: neon-text-cycle 2s infinite linear;
+}
+
+/* Utilitários de Brilho Neon (Glow) */
+.neon-glow-yellow { text-shadow: 0 0 5px var(--neon-yellow); }
+.neon-glow-blue { text-shadow: 0 0 8px var(--neon-blue); }
+.neon-glow-pink { text-shadow: 0 0 5px var(--neon-pink); }
+.neon-glow-red { text-shadow: 0 0 8px var(--neon-red); }
