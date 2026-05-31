@@ -23,7 +23,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-black text-foreground/70 py-12 border-t border-border" role="contentinfo">
         <div className="container mx-auto px-4 max-w-6xl flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex flex-col items-center gap-2">
+          <div className="flex flex-col items-center gap-0">
             <div className="w-16 h-16 relative">
               <Image 
                 src="/logo_simbolo.png" 
@@ -32,7 +32,7 @@ export default function Home() {
                 className="object-contain"
               />
             </div>
-            <div className="w-40 h-10 relative">
+            <div className="w-40 h-10 relative -mt-3">
               <Image 
                 src="/logo_texto.png" 
                 alt="Hernan Sampaio Texto" 

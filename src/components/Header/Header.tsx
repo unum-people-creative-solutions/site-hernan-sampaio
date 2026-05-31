@@ -26,7 +26,7 @@ export const Header = () => {
     >
       <div className="container mx-auto px-6 max-w-[1400px]">
         <div className="flex items-center justify-between">
-          <Link href="/" className="relative transition-all duration-500 ease-in-out">
+          <Link href="/" className="relative transition-all duration-500 ease-in-out group">
             <div
               className={cn(
                 "relative transition-all duration-500 ease-in-out",
@@ -42,6 +42,21 @@ export const Header = () => {
               />
             </div>
           </Link>
+
+          <div
+            className={cn(
+              "relative transition-all duration-500 ease-in-out overflow-hidden pointer-events-none",
+              isScrolled ? "w-0 opacity-0 invisible" : "w-48 h-12 md:w-64 md:h-16 opacity-100 visible"
+            )}
+          >
+            <Image
+              src="/logo_texto.png"
+              alt="Hernan Sampaio Text"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
         </div>
       </div>
     </header>
