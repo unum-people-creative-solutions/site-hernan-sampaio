@@ -25,12 +25,17 @@ export const Header = () => {
       )}
     >
       <div className="container mx-auto px-6 max-w-[1400px]">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="relative transition-all duration-500 ease-in-out group">
+        <div className="flex items-center justify-between relative">
+          <Link href="/" className="z-10 relative transition-all duration-500 ease-in-out">
+            {/* Logo Símbolo: 
+                Mobile: Oculto no topo, visível com scroll à esquerda.
+                Desktop: Sempre visível à esquerda. */}
             <div
               className={cn(
                 "relative transition-all duration-500 ease-in-out",
-                isScrolled ? "w-14 h-14" : "w-28 h-28 md:w-32 md:h-32"
+                isScrolled 
+                  ? "w-14 h-14 opacity-100 visible" 
+                  : "w-28 h-28 md:w-32 md:h-32 opacity-0 invisible md:opacity-100 md:visible"
               )}
             >
               <Image
@@ -43,15 +48,37 @@ export const Header = () => {
             </div>
           </Link>
 
+          {/* Logo Texto (Mobile): 
+              Centralizado no Header apenas quando no topo.
+              Desaparece com scroll. */}
           <div
             className={cn(
-              "relative transition-all duration-500 ease-in-out overflow-hidden pointer-events-none",
-              isScrolled ? "w-0 opacity-0 invisible" : "w-48 h-12 md:w-64 md:h-16 opacity-100 visible"
+              "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden transition-all duration-500 ease-in-out overflow-hidden pointer-events-none",
+              isScrolled 
+                ? "w-0 opacity-0 invisible" 
+                : "w-48 h-12 opacity-100 visible"
             )}
           >
             <Image
               src="/logo_texto.png"
-              alt="Hernan Sampaio Text"
+              alt="Hernan Sampaio Text Mobile"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+
+          {/* Logo Texto (Desktop): 
+              Mantém a posição à direita apenas no topo. */}
+          <div
+            className={cn(
+              "hidden md:block relative transition-all duration-500 ease-in-out overflow-hidden pointer-events-none",
+              isScrolled ? "w-0 opacity-0 invisible" : "w-64 h-16 opacity-100 visible"
+            )}
+          >
+            <Image
+              src="/logo_texto.png"
+              alt="Hernan Sampaio Text Desktop"
               fill
               className="object-contain"
               priority
