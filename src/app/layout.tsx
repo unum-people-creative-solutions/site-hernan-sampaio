@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Personal Trainer em Paranaguá | Hernan Sampaio - Alta Performance",
-  description: "O melhor personal trainer em Paranaguá. Consultoria online e presencial focada em biomecânica, hipertrofia e preparação de atletas com Hernan Sampaio.",
+  description: "Personal trainer referência em Paranaguá. Consultoria online e presencial focada em biomecânica, hipertrofia e preparação de atletas com Hernan Sampaio.",
   keywords: ["personal trainer paranaguá", "treinamento personalizado", "biomecânica", "hipertrofia", "preparação de atletas", "consultoria fitness", "academia paranaguá"],
   alternates: {
     canonical: "https://hernansampaio.com.br", // URL final a ser confirmada
